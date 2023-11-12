@@ -3,12 +3,18 @@ body {
   color: white;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 0 3rem;
 }
 
 header {
-  padding-top: 4rem;
-  position: absolute;
-  width: 100%;
+  transform: translateY(0rem);
   text-align: center;
   font-size: 1.5rem;
+  animation: falldown 1s forwards;
+}
+
+@keyframes falldown {
+  100% {
+    transform: translateY(7rem);
+  }
 }

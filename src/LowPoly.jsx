@@ -1,12 +1,13 @@
 import React from 'react'
 import {Canvas, useFrame} from "@react-three/fiber"
-import { Environment, useGLTF, useAnimations, OrbitControls } from '@react-three/drei'
+import { Environment, useGLTF, useAnimations, OrbitControls, useProgress } from '@react-three/drei'
 import * as THREE from "three"
 import "./App.css"
 
 const CustomFella = ()=>{
     const lowPolyGuy = useGLTF("./lowpolylumberjack_noarmature.glb")
     const { actions, mixer } = useAnimations(lowPolyGuy.animations, lowPolyGuy.scene);
+   
 
 
     console.log(actions,mixer)
@@ -43,7 +44,8 @@ const CustomFella = ()=>{
 
 const LowPoly = () => {
 
-
+    const progress = useProgress();
+    console.log(progress)
 
 
 
@@ -52,6 +54,7 @@ const LowPoly = () => {
 
 
   return (
+      progress.progress !== 100 ? <h1>Loading... </h1> :
     <div style={{height:'100vh',textAlign:"center",padding:'2rem'}}>
         <header>
               <h1>First NPC</h1>
@@ -63,6 +66,7 @@ const LowPoly = () => {
 <CustomFella/>
         </Canvas>
     </div>
+
   )
 }
 
