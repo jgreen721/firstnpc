@@ -60,7 +60,7 @@ const LowPoly = () => {
               <h1>First NPC</h1>
       <small>Whose hat data properties didnt entirely carry over (should be parent-ed to Head)</small>
       </header>
-        <Canvas style={{height:'100%'}}>
+        <Canvas style={{height:'100vh', position:'absolute',inset:0}}>
             <OrbitControls/>
             <Environment preset="city"/>
 <CustomFella/>

@@ -13,8 +13,8 @@ header {
   animation: falldown 1s forwards;
 }
 
-@keyframes falldown {
+/* @keyframes falldown {
   100% {
     transform: translateY(7rem);
   }
-}
+} */
