@@ -11,6 +11,31 @@ header {
   text-align: center;
   font-size: 1.5rem;
   animation: falldown 1s forwards;
+  position: relative;
+  z-index: 50;
+}
+
+button {
+  background: transparent;
+  color: white;
+  font-size: 1.3rem;
+  /* margin: 4rem 2rem; */
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.btn-div {
+  margin-top: 2.5rem;
+}
+
+button:hover {
+  transform: scale(1.2);
+}
+
+canvas {
+  pointer-events: none;
 }
 
 /* @keyframes falldown {
