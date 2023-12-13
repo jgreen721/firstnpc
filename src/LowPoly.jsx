@@ -7,8 +7,10 @@ import "./App.css"
 const CustomFella = ({showCop})=>{
     const lowPolyGuy = useGLTF("./lowpolylumberjack_noarmature.glb");
     const jumpingCop = useGLTF("./jumpingcop.glb");
+    const headScratcher = useGLTF("./headscratchingguy.glb");
     const { actions, mixer } = useAnimations(lowPolyGuy.animations, lowPolyGuy.scene);
     const { actions2, mixer:mixer2 } = useAnimations(jumpingCop.animations, jumpingCop.scene);
+    const { actions3, mixer:mixer3 } = useAnimations(headScratcher.animations, headScratcher.scene);
 
 console.log("JUMPING COP ",mixer2);
     // console.log(actions,mixer)
@@ -17,6 +19,7 @@ console.log("JUMPING COP ",mixer2);
   useFrame((state, delta) => {
     mixer.update(delta);
       mixer2.update(delta);
+      mixer3.update(delta);
     
   });
 
@@ -37,6 +40,11 @@ console.log("JUMPING COP ",mixer2);
       const action = mixer2.clipAction(clip);
       action.play();
   })
+
+  headScratcher.animations.forEach((clip) => {
+    const action = mixer3.clipAction(clip);
+    action.play();
+})
     //  console.log("animation",clip.uuid);
   }, []);
 
@@ -48,14 +56,22 @@ console.log("JUMPING COP ",mixer2);
     <primitive scale={1.25} rotation={[0,Math.PI,0]} position={[0,-3,0]} object={lowPolyGuy.scene}/>
 </group>
 :
+
 <group>
-    <primitive scale={.5} rotation={[0,Math.PI,0]} position={[0,-3,0]} object={jumpingCop.scene}/>
+    <primitive scale={.5} rotation={[0,Math.PI,0]} position={[0,-3,0]} object={headScratcher.scene}/>
 </group>
 }
 </>
   )
 
 }
+
+
+
+
+{/* <group>
+    <primitive scale={.5} rotation={[0,Math.PI,0]} position={[0,-3,0]} object={jumpingCop.scene}/>
+</group> */}
 
 const LowPoly = () => {
   const [showCop,setShowCop] = useState(false)
